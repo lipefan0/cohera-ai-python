@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questionário AI</title>
+  </head>
+  <body>
+    <h1>Insira sua Pergunta</h1>
+    <form id="questionForm" method="post">
+      <textarea
+        name="enunciado"
+        rows="5"
+        cols="50"
+        placeholder="Digite a questão aqui..."
+      ></textarea
+      ><br /><br />
+      <input type="submit" value="Obter Resposta" />
+    </form>
+
+    {% if resposta %}
+    <h2>Resposta:</h2>
+    <p style="white-space: pre-wrap">{{ resposta }}</p>
+    {% endif %}
+
+    <script>
+      document.getElementById("questionForm").onsubmit = function () {
+        setTimeout(() => {
+          this.reset();
+        }, 100); // Aguarda 100 milissegundos para garantir que o formulário foi enviado
+      };
+    </script>
+  </body>
+</html>
